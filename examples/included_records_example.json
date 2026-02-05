@@ -1,0 +1,46 @@
+{
+  "n_included": 43,
+  "records": [
+    {
+      "pmid": "10457970",
+      "title": "[Attitude of family to clozapine].",
+      "abstract": "AIM: Evaluations of clozapine treatment by relatives of schizophrenic patients were assessed as part of an exploratory study and compared with the patients' own assessment.\nMETHOD: 46 relatives of individuals suffering from schizophrenia were questioned by means of a problem-centred interview.\nRESULTS: In addition to the positive effects on the schizophrenic illness, relatives strikingly often pointed out the calming, sleep-improving effect of clozapine. As opposed to the patients, the majority of relatives were well aware of the risks associated with discontinuing the drug treatment. Both patients and relatives complained about the sedative effect and the increased need for sleep associated with clozapine treatment. However, diverging evaluations were given with regard to hypersalivation, anticholinergic effects, and weight gain. Relatives were more concerned about possible organ damage occurring as a long-term effect than the patients. Further, indications were found that relatives were more worried by the risk of haematotoxic effects resulting from clozapine treatment than the patients. It could be said that, among the relatives, there was a slightly greater awareness of the advantages of clozapine treatment in comparison with conventional neuroleptics than there was with the patients.\nCONCLUSION: The importance of relatives' views in the effort to secure adequate neuroleptic treatment despite the current economic restrictions should not be under-estimated.",
+      "authors": [
+        "M C Angermeyer",
+        "K Boitz",
+        "W Löffler",
+        "P Müller",
+        "S Priebe"
+      ],
+      "journal": "Psychiatrische Praxis",
+      "year": 1999,
+      "publication_types": [
+        "English Abstract",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "languages": [
+        "ger"
+      ],
+      "mesh_terms": [
+        "Adult",
+        "Aged",
+        "Attitude to Health",
+        "Caregivers",
+        "Clozapine",
+        "Family",
+        "Female",
+        "Humans",
+        "Male",
+        "Middle Aged",
+        "Risk Factors",
+        "Schizophrenia",
+        "Schizophrenic Psychology"
+      ],
+      "is_humans": true,
+      "doi": null,
+      "pmcid": null
+    },
+  
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "project_name": "Ketamine_MRI_Systematic_Review",
+  "model_name": "qwen3-next:80b-a3b-instruct-q4_K_M",
+  "ollama_url": "http://localhost:11434/api/chat",
+  "extraction_fields": {
+    "authors_year": {
+      "type": "string",
+      "description": "First author and year. Use the title and PMID context if necessary."
+    },
+    "mri_modality": {
+      "type": "string",
+      "description": "MRI modality (e.g., rs-fMRI, T1-weighted). Specify if 'resting state' or 'task-based'. Return 'NR' (Not Reported) if missing."
+    },
+    "mri_field_strength": {
+      "type": "string",
+      "description": "Field strength (e.g., 3T). If not in abstract, search for common hardware mentions. Return 'NR' if missing."
+    },
+    "mri_fu_time": {
+      "type": "string",
+      "description": "All follow-up time points mentioned (e.g., 'Baseline, 2d, 10d post-infusion'). Return 'NR' if missing."
+    },
+    "mri_analysis_task": {
+      "type": "string",
+      "description": "Specific analysis method (e.g., Seed-based correlation, ICA, ALFF). Include the specific seed if mentioned. Return 'NR' if missing."
+    },
+    "mri_roi": {
+      "type": "string",
+      "description": "Specific ROIs or networks targeted (e.g., DMN, Insula, Salience Network). Return 'NR' if missing."
+    },
+    "n_trd": {
+      "type": "string",
+      "description": "Number of MDD/TRD participants. Distinguish between 'Total' and 'Analyzed' if possible. Return 'NR' if missing."
+    },
+    "n_hc": {
+      "type": "string",
+      "description": "Number of healthy controls. Return 'NR' if missing."
+    },
+    "age_trd": { "type": "string", "description": "Mean (SD) or range for MDD group. Return 'NR' if missing." },
+    "age_hc": { "type": "string", "description": "Mean (SD) or range for HC group. Return 'NR' if missing." },
+    "sex_trd": { "type": "string", "description": "Sex distribution (e.g., % Female or M/F count) for MDD group. Return 'NR' if missing." },
+    "sex_hc": { "type": "string", "description": "Sex distribution for HC group. Return 'NR' if missing." },
+    "illness_duration": { "type": "string", "description": "Duration of illness in years. Check for 'unmedicated' status. Return 'NR' if missing." },
+    "diagnostic_instrument": {
+      "type": "string",
+      "description": "Tool used for diagnosis (e.g., SCID, MINI). Look for 'unmedicated' or 'TRD' qualifiers. Return 'NR' if missing."
+    },
+    "diagnostic_criteria": { "type": "string", "description": "Criteria used (e.g., DSM-IV, DSM-5). Return 'NR' if missing." },
+    "trd_criteria": {
+      "type": "string",
+      "description": "Definition of TRD or MDD severity (with number of failed treatments if available). Return 'NR' if missing."
+    },
+    "suicidality": { "type": "string", "description": "Any mention of suicidal ideation or exclusion/inclusion based on it. Return 'NR' if missing." },
+    "comorbidities": { "type": "string", "description": "Mention of comorbid anxiety, substance use, etc. or if comorbidities are excluded. Return 'NR' if missing." },
+    "scale_depression": { "type": "string", "description": "Primary depression scale used (e.g., MADRS, HAM-D). Return 'NR' if missing." },
+    "scale_other": { "type": "string", "description": "Secondary scales (e.g., CADSS for dissociation, BPRS). Return 'NR' if missing." },
+    "outcome_definition": {
+      "type": "string",
+      "description": "How response was defined clinically, even if not linked directly to MRI. Return 'NR' if missing."
+    },
+    "ketamine_route": { "type": "string", "description": "Administration route (e.g., IV, IN, IM). Return 'NR' if missing." },
+    "ketamine_dosing": { "type": "string", "description": "Dose (e.g., 0.5 mg/kg) and frequency/duration of infusion. Return 'NR' if missing." },
+    "main_findings": {
+      "type": "string",
+      "description": "Detailed summary of all results."
+    },
+    "significant_regions": { "type": "string", "description": "List all regions with significant p-values or effects (e.g., Insula, Thalamus). Return 'NR' if missing." },
+    "direction_of_change": {
+      "type": "string",
+      "description": "Direction relative to HC or Baseline. Use terms like 'Normalized', 'Increased', 'Decreased', or 'Transient'. Return 'NR' if missing."
+    },
+    "mri_white_matter_tracts": {
+      "type": "string",
+      "description": "If DWI, specify: SLF, ILF, Cingulum Bundle, Forceps Minor, UF, or Internal Capsule. Return 'NR' if missing."
+    },
+    "direction_and_outcome": {
+      "type": "string",
+      "description": "Direction of MRI feature relative to clinical outcome. Use format: [MRI Metric] [Direction (Increase/Decrease)] correlates with [Clinical Symptom (Depression/Anhedonia/Rumination/Suicidality)] [Direction]."
+    },
+    "item_level_symptom": {
+      "type": "string",
+      "description": "Was the finding linked to a specific symptom? (e.g., Anhedonia, Rumination, Suicidal Ideation, Cognitive symptoms). Return 'NR' if missing."
+    }
+  }
+}

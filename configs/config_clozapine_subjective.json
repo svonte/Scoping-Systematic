@@ -1,0 +1,55 @@
+{
+  "project_name": "Clozapine_Suicidality_Systematic_Review",
+  "model_name": "qwen3-coder-30bq8-abs:latest",
+  "ollama_url": "http://localhost:11434/api/chat",
+  "extraction_fields": {
+    "first_author": {
+      "type": "string",
+      "description": "First author surname only. Use title/PMID context if needed. Return 'NR' if not identifiable."
+    },
+    "year": {
+      "type": "string",
+      "description": "Publication year (YYYY). Return 'NR' if missing."
+    },
+    "pmid": {
+      "type": "string",
+      "description": "PubMed ID. If not present in the text, return 'NR'."
+    },
+    "type_of_study": {
+      "type": "string",
+      "description": "Study design/type (e.g., RCT, open-label trial, prospective cohort, retrospective cohort, case-control, registry/database study, mirror-image study, case series, systematic review). Return 'NR' if missing."
+    },
+    "aim": {
+      "type": "string",
+      "description": "Primary aim/objective in one sentence, focused on clozapine and suicidality (ideation/attempts/completed suicide). Return 'NR' if missing."
+    },
+    "sample_size": {
+      "type": "string",
+      "description": "Total sample size relevant to clozapine-treated group; include subgroup sizes if present (e.g., 'N=120 clozapine; N=95 comparator'). Return 'NR' if missing."
+    },
+    "diagnosis": {
+      "type": "string",
+      "description": "Clinical diagnosis of clozapine-treated patients, explicitly as reported. (e.g., 'schizophrenia', 'schizoaffective disorder'). If multiple diagnoses, list them. Return 'NR' if missing."
+    },
+    "clozapine_dosages_duration": {
+      "type": "string",
+      "description": "Clozapine dosage and duration of treatment/exposure (e.g., mg/day range/mean, titration, maintenance, follow-up length). If dosage OR duration is missing, report what is available and mark the missing part as 'NR'."
+    },
+    "outcome": {
+      "type": "string",
+      "description": "Suicidality outcomes assessed and how measured (e.g., suicidal ideation scale, attempts counts, registry-defined suicide, completed suicide). Specify baseline and post-treatment timepoints if reported. Return 'NR' if missing."
+    },
+    "summary_of_results": {
+      "type": "string",
+      "description": "Concise but information-dense summary of main findings about clozapine and suicidality, including direction of effect and key quantitative results (effect sizes/OR/HR/rates/p-values) if reported. If no significant effect, state so. Return 'NR' only if results are truly not reported."
+    },
+    "effect_direction": {
+      "type": "string",
+      "description": "Overall direction of clozapine effect on suicidality outcomes. Allowed values: 'Beneficial', 'No Effect', 'Negative'. Use ONLY if direction is explicitly supported by reported results. If outcomes conflict or direction is unclear, return 'No Effect' (do not guess)."
+    },
+    "effect_basis": {
+      "type": "string",
+      "description": "What the effect_direction is based on: e.g. 'pre_post', 'vs_comparator', 'association_model', 'narrative_only', or 'NR'."
+    }
+  }
+}

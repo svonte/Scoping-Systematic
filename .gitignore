@@ -1,0 +1,38 @@
+# macOS junk
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python cache / build
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+build/
+dist/
+
+# Virtual envs
+.venv/
+venv/
+.env/
+.python-version
+
+# Jupyter / IDE
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# Runtime outputs (keep examples/)
+data/
+runs/
+logs/
+*.log
+
+# JSONL outputs (keep examples/)
+*.jsonl
+!examples/*.jsonl
+
+# Local-only configs if you ever add them
+configs/*.local.json

@@ -1,0 +1,63 @@
+{
+  "project_name": "Clozapine_Experience_Systematic_Review",
+  "model_name": "qwen3-coder-30bq8-abs:latest",
+  "ollama_url": "http://localhost:11434/api/chat",
+  "extraction_fields": {
+    "first_author": {
+      "type": "string",
+      "description": "First author surname only. Use title/PMID context if needed. Return 'NR' if not identifiable."
+    },
+    "year": {
+      "type": "string",
+      "description": "Publication year (YYYY). Return 'NR' if missing."
+    },
+    "pmid": {
+      "type": "string",
+      "description": "PubMed ID. If not present in the text, return 'NR'."
+    },
+    "citation_details": {
+      "type": "string",
+      "description": "Brief publication details if reported/inferrable from the abstract: journal name, country/region (if explicitly stated), and setting (e.g., outpatient, inpatient, community). Return 'NR' if missing."
+    },
+    "study_design": {
+      "type": "string",
+      "description": "Study design/type (e.g., qualitative interview/focus group/ethnography, cross-sectional survey, longitudinal survey, mixed-methods, registry/database with experience outcomes, systematic review, scoping review). Return 'NR' if missing."
+    },
+    "methodology_assessment": {
+      "type": "string",
+      "description": "How experience was assessed. Include: qualitative approach (e.g., semi-structured interviews, thematic analysis) and/or quantitative instrument(s) (e.g., self-designed questionnaire, Drug Attitude Inventory), plus timing (baseline/follow-up) if stated. Return 'NR' if missing."
+    },
+    "sample_size": {
+      "type": "string",
+      "description": "Sample size(s) for respondent groups (e.g., 'N=120 patients', 'N=45 caregivers', 'N=165 total'). If multiple groups/timepoints, report them. Return 'NR' if missing."
+    },
+    "respondent_type": {
+      "type": "string",
+      "description": "Nature of respondents providing experience data. Allowed values: 'Patients', 'Caregivers/Family', 'Both', 'NR'. Use ONLY what is explicitly stated; do not guess."
+    },
+    "patient_diagnosis": {
+      "type": "string",
+      "description": "Psychiatric diagnosis of the clozapine-treated patients, as explicitly reported (e.g., schizophrenia, schizoaffective disorder, mixed/unspecified). Return 'NR' if missing."
+    },
+    "sociodemographics": {
+      "type": "string",
+      "description": "Key socio-demographic details of the patient sample (and caregivers if reported): age (mean/range), sex/gender distribution, education/employment/marital status, socioeconomic indicators, ethnicity, etc. Report only what is stated; otherwise 'NR'."
+    },
+    "treatment_details": {
+      "type": "string",
+      "description": "Treatment details relevant to experience: clozapine dose (mg/day), duration of use/exposure, titration/monitoring (e.g., blood tests), setting/care pathway, concomitant treatments if highlighted as relevant to experience. If partially missing, report what is available and mark missing parts as 'NR'."
+    },
+    "experience_dimensions": {
+      "type": "string",
+      "description": "Which experience dimensions are reported. Use a semicolon-separated list chosen ONLY from: Overall satisfaction; Positive perception/attitudes; Negative perception/attitudes; Quality of life (QOL); Social functioning; Cognitive/thinking; Sleep; Mood; Side effects burden/discontinuation; Blood tests/monitoring burden; Knowledge/psychoeducation satisfaction; Perceived comparative effectiveness vs other antipsychotics; Adherence; Refusal to start; 'Should have been started earlier'; Caregiving burden/needs; Cost of treatment; Patient participation/engagement; Other (specify). Return 'NR' if unclear."
+    },
+    "key_findings": {
+      "type": "string",
+      "description": "Information-dense synthesis of the main experience findings. Include directionality and salient quantitative figures if reported (e.g., % satisfied, % positive/negative perception, adherence rates), and/or top qualitative themes. Do NOT invent numbers. Return 'NR' only if findings are truly not reported."
+    },
+    "notes_for_synthesis": {
+      "type": "string",
+      "description": "Brief notes to support heterogeneity-aware synthesis: whether the tool was standardized (e.g., Drug Attitude Inventory) vs self-designed; qualitative vs quantitative; comparability caveats explicitly mentioned. Return 'NR' if missing."
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "model": "qwen3-coder:30b-a3b-q8_0",
+  "system_message": "You are a specialized neuroimaging research assistant. Your goal is to extract findings for a meta-analysis.\n\n### CRITICAL DEFINITIONS (STRICTLY FOLLOW):\n\n1. MODALITY BINNING:\n   - 'Structure': ONLY for Gray Matter Volume, Cortical Thickness, or VBM (T1/MRI).\n   - 'Neural_Connectivity': Includes ALL DTI, DWI, FA, Diffusivity, AND Resting State functional connectivity.\n   - 'Task_Activation': fMRI during a task.\n\n2. FINDING TYPE LOGIC:\n   - 'Correlate_of_Improvement': ONLY use if the text mentions a statistical correlation (e.g., 'r=0.4', 'associated with response', 'predicted outcome').\n   - 'Drug_Effect_General': Use for simple changes (e.g., 'increased vs baseline', 'normalized to controls').\n\n3. SCHEMA INTEGRITY:\n   - NEVER put a Region (e.g., Cingulate) in the 'network' field. The 'network' field MUST be one of: DMN, SN, FPN, AN, SCN.\n   - If the text mentions 'Anterior Cingulate' (ACC), the Region is 'Cingulate' but the Network is 'SN' (Salience).\n\n### FILTERING:\n   - IGNORE Healthy Controls (HC) completely.\n   - IGNORE Placebo data.",
+  "system_prompt": "Analyze the abstract. Discard healthy control data. Classify patient findings into the simplified schema.",
+  "output_schema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "network": { 
+          "type": "string", 
+          "enum": ["DMN", "SN", "FPN", "AN", "SCN", "Visual_Sensory", "Global/Other"],
+          "description": "The functional network. Use 'Global/Other' if it's a whole-brain effect or unclear." 
+        },
+        "macro_region": { 
+          "type": "string", 
+          "enum": ["PFC", "Cingulate", "Insula", "Limbic_MedialTemporal", "Striatum_Thalamus", "Sensory_Motor_Cerebellum", "Whole_Brain", "Other"],
+          "description": "The coarse anatomical location. 'Sensory_Motor_Cerebellum' includes Visual, Auditory, Motor cortex, and Cerebellum." 
+        },
+        "modality_type": { 
+          "type": "string", 
+          "enum": ["Structure", "Resting_State", "Task_Activation", "Neural_Connectivity"],
+          "description": "Broad category. 'Neural_Connectivity' includes DTI/DWI." 
+        },
+        "finding_type": { 
+          "type": "string", 
+          "enum": ["Drug_Effect_General", "Baseline_Predictor", "Correlate_of_Improvement"],
+          "description": "Is this a general change after drug, a baseline predictor, or a change that tracks with symptoms?" 
+        },
+        "direction": { 
+          "type": "string", 
+          "enum": ["Increased", "Decreased", "Normalized", "Mixed"],
+          "description": "Direction of the metric (Volume, Connectivity, Activity)." 
+        }
+      },
+      "required": ["network", "macro_region", "modality_type", "finding_type", "direction"]
+    }
+  }
+}
