@@ -9,6 +9,8 @@ This repository contains a lightweight, local-first pipeline to:
 
 The pipeline is designed for rapid, reproducible evidence mapping under constrained information (abstracts + metadata), with configurations fully versioned in JSON.
 
+Scripts and configs need to be adapted to the specific use.
+
 ## Repository structure
 
 - `scripts/`  
