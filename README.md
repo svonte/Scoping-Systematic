@@ -9,7 +9,7 @@ This repository contains a lightweight, local-first pipeline to:
 
 The pipeline is designed for rapid, reproducible evidence mapping under constrained information (abstracts + metadata), with configurations fully versioned in JSON.
 
-Scripts and configs need to be adapted to the specific use.
+This pipeline is not a plug-and-play tool: scripts and configuration files are provided as examples and must be adapted to the specific research question, eligibility criteria, and evidence synthesis objectives.
 
 ## Repository structure
 
